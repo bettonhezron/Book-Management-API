@@ -2,7 +2,9 @@ package com.hezron.Book.Management.Repository;
 
 
 import com.hezron.Book.Management.model.Book;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface BookRepository extends MongoRepository<Book, Long> {
+
+public interface BookRepository extends JpaRepository<Book, String> {
+
 }

@@ -5,9 +5,8 @@ import com.hezron.Book.Management.model.Book;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +26,25 @@ public class BookController {
     @ApiResponse(responseCode = "200", description = "Successfully retrieved all books" )
     public List<Book> getAllBooks(){
         return bookRepository.findAll();
+    }
+
+
+    @GetMapping("{id}")
+    @Operation(summary = "Get a book by ID", description = "Retrieves a specific book by its ID" )
+    @ApiResponse(responseCode = "200", description = "Book updated successfully" )
+    @ApiResponse(responseCode = "404", description = "Book not found")
+    public ResponseEntity<Book> getBookById(@PathVariable String id){
+        return bookRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+
+    @PostMapping
+    @Operation(summary = "Create a new book", description = "Adds a new book to the system")
+    @ApiResponse(responseCode = "200", description = "Book created successfully")
+
+    public Book createBook(@RequestBody Book book){
+        return bookRepository.save(book);
     }
 }
