@@ -28,7 +28,7 @@ public class BookController {
         return bookRepository.findAll();
     }
 
-
+//Get book by id
     @GetMapping("{id}")
     @Operation(summary = "Get a book by ID", description = "Retrieves a specific book by its ID" )
     @ApiResponse(responseCode = "200", description = "Book updated successfully" )
@@ -40,6 +40,7 @@ public class BookController {
     }
 
 
+    //Create a new book
     @PostMapping
     @Operation(summary = "Create a new book", description = "Adds a new book to the system")
     @ApiResponse(responseCode = "200", description = "Book created successfully")
