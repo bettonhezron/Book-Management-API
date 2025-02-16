@@ -51,7 +51,7 @@ public class BookController {
     //Update book by Id
     @PutMapping("/{id}")
     @Operation(summary = "Update a new book", description = "Update an existing book's information")
-    @ApiResponse(responseCode = "200", description = "Book updated succesfully")
+    @ApiResponse(responseCode = "200", description = "Book updated successfully!")
     @ApiResponse(responseCode = "404", description = "Book not found")
     public ResponseEntity<Book> updateBook(@PathVariable String id, @RequestBody Book book){
         if (!bookRepository.existsById(id)){
@@ -60,5 +60,19 @@ public class BookController {
         }
         book.setId(id);
         return ResponseEntity.ok(bookRepository.save(book));
+    }
+
+
+    //Delete book by id
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Delete a book", description = "Removes a book from the system.")
+    @ApiResponse(responseCode = "200", description = "Book deleted successfully!")
+    @ApiResponse(responseCode = "404", description = "Book not found")
+
+    public ResponseEntity<Void> deleteBookById(@PathVariable String id){
+        if (!bookRepository.existsById(id)){
+            return ResponseEntity.notFound().build();
+            }
+        return ResponseEntity.noContent().build();
     }
 }
