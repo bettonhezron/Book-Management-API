@@ -47,4 +47,18 @@ public class BookController {
     public Book createBook(@RequestBody Book book){
         return bookRepository.save(book);
     }
+
+    //Update book by Id
+    @PutMapping("/{id}")
+    @Operation(summary = "Update a new book", description = "Update an existing book's information")
+    @ApiResponse(responseCode = "200", description = "Book updated succesfully")
+    @ApiResponse(responseCode = "404", description = "Book not found")
+    public ResponseEntity<Book> updateBook(@PathVariable String id, @RequestBody Book book){
+        if (!bookRepository.existsById(id)){
+            return ResponseEntity.notFound().build();
+
+        }
+        book.setId(id);
+        return ResponseEntity.ok(bookRepository.save(book));
+    }
 }

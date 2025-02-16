@@ -17,7 +17,7 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(description = "Unique identifier of the book")
-    private Long id;
+    private String id;
 
     @Column(nullable = false)
     private String title;
