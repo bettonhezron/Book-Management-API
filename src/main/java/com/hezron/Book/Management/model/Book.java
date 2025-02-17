@@ -1,13 +1,10 @@
 package com.hezron.Book.Management.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "books")
@@ -30,4 +27,24 @@ public class Book {
 
     @Column
     private Integer year;
+
+    @Column
+    private String genre;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate(){
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+    }
+
+   @PreUpdate
+    protected  void onUpdate(){
+        updatedAt = LocalDateTime.now();
+   }
 }
