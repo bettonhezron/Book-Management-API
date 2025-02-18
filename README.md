@@ -75,7 +75,8 @@ http://localhost:8080/swagger-ui.html
 ```
 
 
-Here’s a preview of how the Swagger UI looks:
+Here’s a preview of how the Swagger UI looks: 
+
 ![Swagger Screenshot](images/swagger-screenshot.png)
 
 
