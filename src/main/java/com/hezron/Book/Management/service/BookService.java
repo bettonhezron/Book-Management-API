@@ -6,7 +6,6 @@ import com.hezron.Book.Management.Repository.BookRepository;
 import com.hezron.Book.Management.dto.BookDTO;
 import com.hezron.Book.Management.model.Book;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -75,8 +74,8 @@ public class BookService {
         return bookRepository.findByGenre(genre, pageable);
     }
 
-    public Page<Book> findByGenre(String genre, PageRequest of) {
-        return null;
+    public Page<Book> findByGenre(String genre, Pageable pageable) {
+        return bookRepository.findByGenre(genre, pageable);
     }
 
     public void deleteById(String id) {

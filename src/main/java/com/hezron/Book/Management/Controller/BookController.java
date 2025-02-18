@@ -27,7 +27,7 @@ public class BookController {
 
     // Retrieve all books with pagination
     @GetMapping
-    @Operation(summary = "Get all books", description = "Retrieves a list of all books in the system")
+    @Operation(summary = "Get all books (paginated)", description = "Retrieves a list of all books in the system")
     @ApiResponse(responseCode = "200", description = "Successfully retrieved all books")
     public Page<Book> getAllBooks(
             @RequestParam(defaultValue = "0") int page,
@@ -91,7 +91,7 @@ public class BookController {
 
     // Delete a book by its ID
     @DeleteMapping("/{id}")
-    @Operation(summary = "Delete a book", description = "Removes a book from the system")
+    @Operation(summary = "Delete a book by ID", description = "Removes a book from the system")
     @ApiResponse(responseCode = "204", description = "Book deleted successfully!")
     @ApiResponse(responseCode = "404", description = "Book not found")
     public ResponseEntity<Void> deleteBook(@PathVariable("id") String id) {

@@ -44,16 +44,15 @@ The Book Management API is a RESTful service built using Spring Boot. It provide
 
 ## API Endpoints
 ### Books
-| Method | Endpoint                       | Description               |
-|--------|--------------------------------|---------------------------|
-| GET    | `/api/books`                   | Get all books (paginated) |
-| GET    | `/api/books/{id}`              | Get a book by ID          |
-| POST   | `/api/books`                   | Create a new book         |
-| PUT    | `/api/books/{id}`              | Update an existing book   |
-| GET    | `/api/books/search?title=xyz`  | Search books by title     |
-| GET    | `/api/books/search?author=abc` | Search books by author    |
-| GET    | `/api/books/genre/{genre}`     | Get books by genre        |
-| DELETE | `/api/books/{id}`              | Delete a book             |
+| Method | Endpoint                       | Description                     |
+|--------|--------------------------------|---------------------------------|
+| GET    | `/api/books`                   | Get all books (paginated)       |
+| GET    | `/api/books/{id}`              | Get a book by ID                |
+| POST   | `/api/books`                   | Create a new book               |
+| PUT    | `/api/books/{id}`              | Update an existing book         |
+| GET    | `/api/books/search`            | Search books by title or author |
+| GET    | `/api/books/genre/{genre}`     | Get books by genre              |
+| DELETE | `/api/books/{id}`              | Delete a book                   |
 
 
 ## Error Handling
@@ -61,7 +60,7 @@ The Book Management API is a RESTful service built using Spring Boot. It provide
 |----------------------|------------|---------|
 | Book Not Found       | 404 | `Book not found with id: {id}` |
 | Duplicate ISBN       | 400 | `Book with ISBN {isbn} already exists` |
-| Deleted successfully | 204 | (No response body, operation successful) |
+| Deleted successfully | 204 | `(No response body, operation successful)` |
 
 ## Running Tests
 To run tests, use:
