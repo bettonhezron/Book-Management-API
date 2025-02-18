@@ -11,7 +11,7 @@ The Book Management API is a RESTful service built using Spring Boot. It provide
 - Exception handling for errors like duplicate ISBNs and book not found
 
 ## Technologies Used
-- Java 11+
+- Java 21
 - Spring Boot
 - Spring Data JPA
 - PostgreSQL (or any other relational database)
