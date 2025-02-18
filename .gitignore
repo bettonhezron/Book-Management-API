@@ -20,7 +20,7 @@ target/
 *.ipr
 
 # Ignore profile-specific properties files
-/application-dev.properties
+/src/main/resources/application.properties
 
 ### NetBeans ###
 /nbproject/private/
