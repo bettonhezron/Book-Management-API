@@ -31,7 +31,7 @@ The Book Management API is a RESTful service built using Spring Boot. It provide
    git clone https://github.com/bettonhezron/Book-Management-API.git
    cd  book-management
    ```
-2. Configure the database in `application.properties`:
+2. Configure the database in `application.properties` eg :
    ```properties
    spring.datasource.url=jdbc:mysql://localhost:3306/bookdb
    spring.datasource.username=your_username
